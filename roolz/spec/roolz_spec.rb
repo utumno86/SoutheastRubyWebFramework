@@ -4,6 +4,9 @@ RSpec.describe Roolz do
   end
 
   it "does something useful" do
-    expect(false).to eq(true)
+    env = { "PATH_INFO" => "/",
+    "QUERY_STRING" => "" }
+
+    expect(::Roolz::App.new.call(env)[0]).to eq(200)
   end
 end
