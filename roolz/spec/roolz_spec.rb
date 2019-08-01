@@ -13,4 +13,11 @@ RSpec.describe Roolz do
 
     expect(::Roolz::App.new.call(env)[0]).to eq(200)
   end
+
+  it "loads controller if name doesn't exist" do
+    env = { "PATH_INFO" => "/spec/test",
+    "QUERY_STRING" => "" }
+
+    expect(::Roolz::App.new.call(env)[0]).to eq(200)
+  end
 end
