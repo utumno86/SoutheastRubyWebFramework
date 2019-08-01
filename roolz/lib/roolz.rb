@@ -1,6 +1,8 @@
 require "roolz/version"
 
 module Roolz
+  require "erb"
+
   class App
     def call(env)
      kl, act = cont_and_act(env)
@@ -19,6 +21,12 @@ module Roolz
     attr_reader :env
     def initialize(env)
       @env = env
+    end
+
+    def render(name, b = binding())
+      template = "app/views/#{name}.html.erb"
+      e = ERB.new(File.read template)
+      e.result(b)
     end
   end
 
