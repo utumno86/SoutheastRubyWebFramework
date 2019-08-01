@@ -7,4 +7,9 @@ class QController < Roolz::Controller
     @noun = :winking
     render(:shakes)
   end
+
+  def card_trick
+    n = params["card"] || "Queen"
+    "Your card: the #{n} of Spades!"
+  end
 end
