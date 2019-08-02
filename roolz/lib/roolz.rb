@@ -53,6 +53,12 @@ module Roolz
       '\1_\2').downcase
   end
 
+  class FileModel
+    def initialize(fn)
+      @fn = fn
+      cont
+  end
+
   class Error < StandardError; end
   # Your code goes here...
 end
